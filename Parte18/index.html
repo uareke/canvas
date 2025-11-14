@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregar Imagem do Usuário</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importar a biblioteca do boostrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <!-- MODIFIQUE AQUI CRIAMOS UM CONTAINER PARA OS BUTTONS-->
+<div class="action-buttons">
+    <button id="btnCarregarImagem">Carregar Nova Imagem</button>
+    <!-- CRIAMOS UM NOVO BUTTON PARA SALVAR IMAGEM-->
+    <button id="btnSalvarImagem">Salvar Imagem</button>
+
+    <button id="btnAdicionarRetangulo">Adicionar Retângulo</button> 
+    <!-- CRIAMOS O BOTAO PARA ADICIONAR TEXTO -->
+        <button id="btnAdicionarTexto">Adicionar Texto</button>
+</div>
+   
+    <input type="file" id="seletorDeArquivo" accept="image/*" style="display: none;">
+
+    <div class="editor-container">
+        <div id="layer-panel">
+            <h2>Camadas</h2>
+            <ul id="layer-list">
+            </ul>
+        </div>
+        <canvas id="meu-canvas" width="800" height="600">
+            Seu navegador não suporta o elemento canvas.
+        </canvas>
+    </div>
+
+<div id="properties-panel" class="context-panel">
+    <div id="image-filters">
+        <h3>Filtros de Imagem</h3>
+        <button data-filter="grayscale">Tons de Cinza</button>
+        <button data-filter="reset">Restaurar Original</button>
+    </div>
+    <div id="shape-properties">
+        <h3>Propriedades</h3>
+        <div>
+            <label for="color-picker">Cor:</label>
+            <input type="color" id="color-picker">
+        </div>
+    </div>
+</div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

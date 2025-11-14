@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregar Imagem do Usuário</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importar a biblioteca do boostrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <!-- MODIFIQUE AQUI CRIAMOS UM CONTAINER PARA OS BUTTONS-->
+<div class="action-buttons">
+    <button id="btnCarregarImagem">Carregar Nova Imagem</button>
+    <!-- CRIAMOS UM NOVO BUTTON PARA SALVAR IMAGEM-->
+    <button id="btnSalvarImagem">Salvar Imagem</button>
+
+    <!-- CRIAMOS O BOTAO PARA ADICIONAR TEXTO -->
+        <button id="btnAdicionarTexto">Adicionar Texto</button>
+</div>
+   
+    <input type="file" id="seletorDeArquivo" accept="image/*" style="display: none;">
+
+    <div class="editor-container">
+        <div id="layer-panel">
+            <h2>Camadas</h2>
+            <ul id="layer-list">
+            </ul>
+        </div>
+        <canvas id="meu-canvas" width="800" height="600">
+            Seu navegador não suporta o elemento canvas.
+        </canvas>
+    </div>
+
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

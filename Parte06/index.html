@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregar Imagem do Usuário</title>
+    <style>
+        /* 🎨 Estilização básica do corpo da página */
+        body {
+            background-color: #1a1a1a; /* fundo escuro pra destacar o canvas */
+            display: flex;
+            flex-direction: column; /* organiza botão e canvas verticalmente */
+            justify-content: center; /* centraliza verticalmente */
+            align-items: center;     /* centraliza horizontalmente */
+            height: 100vh;           /* ocupa toda a altura da tela */
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* Canvas com borda e fundo clarinho */
+        canvas {
+            border: 2px solid #555;
+            background-color: #f0f0f0;
+        }
+
+        /* 🖱️ Estilo do botão de carregar imagem */
+        #btnCarregarImagem {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;             /* mostra mãozinha ao passar o mouse */
+            background-color: #0077cc;   /* azulzinho bonito */
+            color: white;
+            border: none;
+            border-radius: 5px;          /* cantinhos arredondados */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão estilizado que dispara o input escondido -->
+    <button id="btnCarregarImagem">Selecionar Imagem</button>
+
+    <!-- Input escondido que recebe o arquivo de imagem do usuário -->
+    <input type="file" id="seletorDeArquivo" accept="image/*" style="display: none;">
+
+    <!-- Canvas onde tudo acontece: imagens, textos e animações -->
+    <canvas id="meu-canvas" width="800" height="600">
+        Seu navegador não suporta o elemento canvas.
+    </canvas>
+
+    <!-- Nosso código JS principal, como módulo ES6 -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>

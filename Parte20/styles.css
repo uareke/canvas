@@ -1,0 +1,255 @@
+ body {
+     background-color: #1a1a1a;
+     /* fundo escuro pra destacar o canvas */
+     display: flex;
+     flex-direction: column;
+     /* organiza botão e canvas verticalmente */
+     justify-content: center;
+     /* centraliza verticalmente */
+     align-items: center;
+     /* centraliza horizontalmente */
+     height: 100vh;
+     /* ocupa toda a altura da tela */
+     margin: 0;
+     font-family: sans-serif;
+ }
+
+ /* Canvas com borda e fundo clarinho */
+ canvas {
+     border: 2px solid #555;
+     background-color: #f0f0f0;
+ }
+
+ /* 🖱️ Estilo do botão de carregar imagem */
+ #btnCarregarImagem {
+     margin-bottom: 20px;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+     /* mostra mãozinha ao passar o mouse */
+     background-color: #0077cc;
+     /* azulzinho bonito */
+     color: white;
+     border: none;
+     border-radius: 5px;
+     /* cantinhos arredondados */
+ }
+
+ #layer-panel {
+     width: 250px;
+     background-color: #e0e0e0;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     padding: 10px;
+ }
+
+ #layer-panel h2 {
+     margin: 0 0 10px 0;
+     font-size: 18px;
+     text-align: center;
+ }
+
+ #layer-list {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .layer-item {
+     display: flex;
+     justify-content: space-between;
+     /* Alinha o nome à esquerda e o botão à direita */
+     align-items: center;
+     padding: 8px;
+     background-color: #fff;
+     border: 1px solid #ddd;
+     margin-bottom: 5px;
+     cursor: pointer;
+     border-radius: 3px;
+     user-select: none;
+     /* Impede a seleção de texto */
+ }
+
+ .layer-item:hover {
+     background-color: #f0f8ff;
+     /* Azul claro */
+ }
+
+ /* Classe para o item ativo/selecionado */
+ .layer-item.active {
+     background-color: #0077cc;
+     color: white;
+     border-color: #005fa3;
+ }
+
+ .editor-container {
+     display: flex;
+
+ }
+
+ /* Um container para os ícones à direita */
+ .layer-icons {
+     margin-left: auto;
+     /* Empurra os ícones para a direita */
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     /* Espaço entre os ícones */
+ }
+
+ /* Estilo para o ícone de visibilidade */
+ .visibility-toggle {
+     cursor: pointer;
+     font-size: 18px;
+     /* Tamanho do emoji */
+ }
+
+ /* Classe para quando a camada está oculta */
+ .layer-item.is-hidden {
+     opacity: 0.6;
+     /* Deixa o item da lista semi-transparente */
+ }
+
+
+ /* Novo estilo para o botão de deletar */
+ .delete-btn {
+     color: #999;
+     font-weight: bold;
+     font-family: monospace;
+     /* Deixa o "X" mais bonito */
+     padding: 0 5px;
+     border-radius: 50%;
+ }
+
+ .delete-btn:hover {
+     color: #f00;
+     /* Vermelho ao passar o mouse */
+     background-color: #eee;
+ }
+
+
+/* Estilos para os novos botões de reordenamento */
+.reorder-btn {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0 4px;
+    font-size: 16px;
+}
+.reorder-btn:hover {
+    color: #0077cc;
+}
+
+/* Estilo para quando um botão estiver desabilitado */
+.reorder-btn.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+.reorder-btn.disabled:hover {
+    color: #ccc; /* Não muda de cor no hover */
+}
+
+/* Ajuste no container de ícones para mais espaço */
+.layer-icons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Aumenta um pouco o espaço */
+}
+
+
+/**NOVOS ESTILOS */
+/* NOVO: Estilo para o container dos botões */
+.action-buttons {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo para o botão de salvar (verde para indicar sucesso) */
+#btnSalvarImagem {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/*  Estilo para a alça de rotação */
+.rotation-handle {
+    position: absolute; /* Usaremos para posicionar via JS se necessário, mas por enquanto, só estilo */
+    width: 12px;
+    height: 12px;
+    background-color: #28a745; /* Mesmo verde do botão Salvar */
+    border: 1px solid white;
+    border-radius: 50%; /* Deixa redonda */
+    cursor: crosshair; /* Um cursor bom para rotação */
+}
+
+#btnAdicionarTexto {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffc107; /* Amarelo */
+    color: #212529; /* Cor de texto escura */
+    border: none;
+    border-radius: 5px;
+}
+#btnAdicionarTexto:hover {
+    background-color: #e0a800;
+}
+
+/* NOVO: Estilos para o painel contextual de filtros */
+.context-panel {
+    display: none; /* Escondido por padrão */
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.context-panel h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+.context-panel button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+
+/* Renomeie esta regra */
+#properties-panel {
+    display: none; /* Escondido por padrão */
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+/* Renomeie o seletor aqui também */
+#properties-panel h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+/* Renomeie o seletor aqui também */
+#properties-panel button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+
+/* NOVO: Estilos para as seções internas */
+#shape-properties > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#shape-properties label {
+    margin-right: 10px;
+}
