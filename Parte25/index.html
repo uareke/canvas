@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregar Imagem do Usuário</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importar a biblioteca do boostrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <div class="action-buttons">
+        <button id="btnCarregarImagem">Carregar Nova Imagem</button>
+        <button id="btnSalvarImagem">Salvar Imagem</button>
+        <button id="btnAdicionarRetangulo">Adicionar Retângulo</button>
+        <button id="btnAdicionarTexto">Adicionar Texto</button>
+        <button id="btnSalvarProjeto">Salvar Projeto</button>
+        <button id="btnCarregarProjeto">Carregar Projeto</button>
+    </div>
+
+    <input type="file" id="seletorDeArquivo" accept="image/*" style="display: none;">
+    <input type="file" id="seletorDeProjeto" accept=".json,application/json" style="display: none;">
+
+    <div class="editor-container">
+        <div id="layer-panel">
+            <h2>Camadas</h2>
+            <ul id="layer-list">
+            </ul>
+        </div>
+        <canvas id="meu-canvas" width="800" height="600">
+            Seu navegador não suporta o elemento canvas.
+        </canvas>
+        <div id="properties-panel" class="context-panel">
+            <div id="image-filters">
+                <h3>Filtros de Imagem</h3>
+                <button data-filter="grayscale">Tons de Cinza</button>
+                <button data-filter="reset">Restaurar Original</button>
+            </div>
+            <div id="shape-properties">
+                <h3>Propriedades</h3>
+                <div>
+                    <label for="color-picker">Cor:</label>
+                    <input type="color" id="color-picker">
+                </div>
+            </div>
+            <div id="shadow-properties">
+                <h3>Sombra</h3>
+                <div class="prop-item">
+                    <label for="shadow-enabled">Ativar</label>
+                    <input type="checkbox" id="shadow-enabled">
+                </div>
+                <div class="prop-item">
+                    <label for="shadow-color">Cor</label>
+                    <input type="color" id="shadow-color">
+                </div>
+                <div class="prop-item">
+                    <label for="shadow-blur">Desfoque</label>
+                    <input type="range" id="shadow-blur" min="0" max="50" step="1">
+                </div>
+                <div class="prop-item">
+                    <label for="shadow-offset-x">Offset X</label>
+                    <input type="range" id="shadow-offset-x" min="-50" max="50" step="1">
+                </div>
+                <div class="prop-item">
+                    <label for="shadow-offset-y">Offset Y</label>
+                    <input type="range" id="shadow-offset-y" min="-50" max="50" step="1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <ul id="context-menu" class="context-menu">
+        <li data-action="move-forward">Trazer para Frente</li>
+        <li data-action="move-backward">Enviar para Trás</li>
+        <li class="separator"></li>
+        <li data-action="delete" style="color: red;">Deletar</li>
+    </ul>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
